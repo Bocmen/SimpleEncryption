@@ -56,7 +56,8 @@ namespace SimpleEncryptionApp.UWP
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
-                Xamarin.Forms.Forms.Init(e);
+                Xamarin.Forms.Forms.Init(e, ConsoleLibrary.Platform.UWP.InitLabrary.IncludeAssemblery);
+                ConsoleLibrary.Platform.UWP.InitLabrary.Init();
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {

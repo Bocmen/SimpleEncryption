@@ -12,7 +12,7 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.22000.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
     <FileAlignment>512</FileAlignment>
@@ -144,11 +144,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12"/>
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Submodules\ConsoleLibrary\Library\Console\ConsoleLibrary.UWP\ConsoleLibrary.UWP.csproj">
+      <Project>{014506a7-2013-4a74-b50e-be9d52c643b2}</Project>
+      <Name>ConsoleLibrary.UWP</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimpleEncryptionApp\SimpleEncryptionApp.csproj">
       <Project>{61AA50EF-B295-4959-9942-AE8B14B9DA64}</Project>
       <Name>SimpleEncryptionApp</Name>

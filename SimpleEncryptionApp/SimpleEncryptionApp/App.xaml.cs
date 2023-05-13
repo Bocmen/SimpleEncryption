@@ -1,6 +1,6 @@
-﻿using System;
+﻿using System.Reflection;
+using WorkInvoker.Pages;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace SimpleEncryptionApp
 {
@@ -9,20 +9,15 @@ namespace SimpleEncryptionApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
-        }
-
-        protected override void OnStart()
-        {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
+            WorkInvoker.WorksLoader.AppendWorks(Assembly.GetAssembly(typeof(SimpleEncription.Const)));
+            SettingPage.ApplayThemes();
+            MainPage = WorkInvoker.Pages.MainPage.CreateRootPage(new DefaultViewWorks()
+            {
+                Title = DefaultViewWorks.DefaultTitlePage
+            }, new SettingPage()
+            {
+                Title = SettingPage.DefaultTitlePage
+            });
         }
     }
 }

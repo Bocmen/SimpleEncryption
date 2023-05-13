@@ -1,0 +1,6 @@
+[submodule "Submodules/ConsoleLibrary"]
+	path = Submodules/ConsoleLibrary
+	url = https://github.com/Bocmen/ConsoleLibrary
+[submodule "Submodules/RandomGenerators"]
+	path = Submodules/RandomGenerators
+	url = https://github.com/Bocmen/RandomGenerators
