@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Submodules\RandomGenerators\CoreRandomGenerators\CoreRandomGenerators.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="PartOne\" />
-  </ItemGroup>
-
 </Project>
