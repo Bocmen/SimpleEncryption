@@ -108,7 +108,8 @@ namespace SimpleEncription.PartOne.Abstract
             IEnumerable<NodeTranslation> translationColumn = GenerateNodeTranslation(keyColumn, countColumn);
             IEnumerable<NodeTranslation> translationRow = GenerateNodeTranslation(keyRow, countRows);
 
-            await Console.DrawTableUseGrid(GetTableDataUseTextKey(translationColumn, translationRow));
+            if(translationColumn.Count() <= 50 && translationRow.Count() <= 50)
+                await Console.DrawTableUseGrid(GetTableDataUseTextKey(translationColumn, translationRow));
 
             TranslationColumn = translationColumn.Select(x => x.TranslateIndex).ToArray();
             TranslationRow = translationRow.Select(x => x.TranslateIndex).ToArray();
