@@ -77,6 +77,7 @@ namespace SimpleEncription.PartOne.Abstract
         }
         private IEnumerable<NodeTranslation> GenerateNodeTranslation(string key, int size)
         {
+            if (string.IsNullOrEmpty(key)) key = ((char)0).ToString();
             HashSet<char> unique = new HashSet<char>();
             char lastVal = char.MinValue;
             for (int i = 0; i < size; i++)
@@ -96,7 +97,7 @@ namespace SimpleEncription.PartOne.Abstract
                 }
             }
             var data = unique.Select((x, i) => (x, i)).OrderBy(x => x.x).Select((x, i) => (i, x.i, x.x));
-            return (Type == RouteTranspositionType.Encryption ? data.Select(x => new NodeTranslation(key[x.Item2], x.x, x.Item1, x.Item2)) : data.Select(x => new NodeTranslation(key[x.Item2], x.x, x.Item2, x.Item1))).OrderBy(x => x.InitialIndex);
+            return (Type == RouteTranspositionType.Encryption ? data.Select(x => new NodeTranslation(key[x.Item2 % key.Length], x.x, x.Item1, x.Item2)) : data.Select(x => new NodeTranslation(key[x.Item2 % key.Length], x.x, x.Item2, x.Item1))).OrderBy(x => x.InitialIndex);
         }
         private async Task LoadTranslationdata(CancellationToken token, int countColumn, int countRows)
         {
