@@ -3,7 +3,6 @@ using System.Collections;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-using CoreRandomGenerators.Extension;
 
 namespace SimpleEncription.PartTwo
 {
@@ -21,10 +20,10 @@ namespace SimpleEncription.PartTwo
     {
         public override Task<BitArray> GetGamma(CancellationToken token, int textLength)
         {
-            var randomGenerator = new CoreRandomGenerators.LFSR();
+            var randomGenerator = new CoreRandomGenerators.LFSR(new BitArray(new byte[] { 20 }), new BitArray(new byte[] { 16 }), 5, 0);
             byte[] buffer = new byte[textLength];
             for (int i = 0; i < buffer.Length; i++)
-                buffer[i] = randomGenerator.NextByte();
+                buffer[i] = (byte)randomGenerator.Next(5);
             return Task.FromResult(new BitArray(buffer));
         }
     }
